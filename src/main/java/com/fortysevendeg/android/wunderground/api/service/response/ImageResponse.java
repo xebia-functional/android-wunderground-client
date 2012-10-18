@@ -18,21 +18,44 @@
  *
  */
 
-package com.fortysevendeg.android.wunderground.api.service;
+package com.fortysevendeg.android.wunderground.api.service.response;
 
-import com.fortysevendeg.android.wunderground.api.service.impl.WundergoundApiClientImpl;
+import it.restrung.rest.marshalling.response.AbstractJSONResponse;
+
+import java.io.Serializable;
 
 /**
- * Factory for api clients
+ * Image class
  */
-public class WundergroundApiProvider {
+public class ImageResponse extends AbstractJSONResponse implements Serializable {
 
-    private static WundergroundApiClient instance = new WundergoundApiClientImpl();
+    private String url;
 
-    private WundergroundApiProvider() {
+    private String title;
+
+    private String link;
+
+    public String getUrl() {
+        return url;
     }
 
-    public static WundergroundApiClient getClient() {
-        return instance;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
