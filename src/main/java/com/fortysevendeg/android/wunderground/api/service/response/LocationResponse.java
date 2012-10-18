@@ -35,11 +35,11 @@ public class LocationResponse extends AbstractJSONResponse implements Serializab
 
     private String state;
 
-    private String stateName;
+    private String state_name;
 
     private String country;
 
-    private String countryIso3166;
+    private String country_iso3166;
 
     private String zip;
 
@@ -73,28 +73,12 @@ public class LocationResponse extends AbstractJSONResponse implements Serializab
         this.state = state;
     }
 
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
-
     public String getCountry() {
         return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getCountryIso3166() {
-        return countryIso3166;
-    }
-
-    public void setCountryIso3166(String countryIso3166) {
-        this.countryIso3166 = countryIso3166;
     }
 
     public String getZip() {
@@ -127,5 +111,21 @@ public class LocationResponse extends AbstractJSONResponse implements Serializab
 
     public void setElevation(Double elevation) {
         this.elevation = elevation;
+    }
+
+    public String getState_name() {
+        return state_name;
+    }
+
+    public void setState_name(String state_name) {
+        this.state_name = state_name;
+    }
+
+    public String getCountry_iso3166() {
+        return country_iso3166;
+    }
+
+    public void setCountry_iso3166(String country_iso3166) {
+        this.country_iso3166 = country_iso3166;
     }
 }

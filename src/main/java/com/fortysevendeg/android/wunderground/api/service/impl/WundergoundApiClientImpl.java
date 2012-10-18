@@ -51,9 +51,9 @@ public class WundergoundApiClientImpl implements WundergroundApiClient {
     @Override
     public void query(APIDelegate<WundergroundResponse> delegate,String apiKey, Settings settings, Query query, Feature... features) {
         if (settings != null) {
-            client.getAsync(delegate, getEndpoint("/%s/%s/%s/q/%s"), apiKey, TextUtils.join("/", features), TextUtils.join("/", settings.getValue()), query.getValue());
+            client.getAsync(delegate, getEndpoint("/%s/%s/%s/q/%s.json"), apiKey, TextUtils.join("/", features), TextUtils.join("/", settings.getValue()), query.getValue());
         } else {
-            client.getAsync(delegate, getEndpoint("/%s/%s/q/%s"), apiKey, TextUtils.join("/", features), query.getValue());
+            client.getAsync(delegate, getEndpoint("/%s/%s/q/%s.json"), apiKey, TextUtils.join("/", features), query.getValue());
         }
     }
 }

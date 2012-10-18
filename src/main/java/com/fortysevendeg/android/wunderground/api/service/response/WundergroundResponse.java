@@ -31,7 +31,7 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     private InfoWundergroundResponse response;
 
-    private ObservationResponse currentObservation;
+    private ObservationResponse current_observation;
 
     public InfoWundergroundResponse getResponse() {
         return response;
@@ -41,11 +41,11 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
         this.response = response;
     }
 
-    public ObservationResponse getCurrentObservation() {
-        return currentObservation;
+    public ObservationResponse getCurrent_observation() {
+        return current_observation;
     }
 
-    public void setCurrentObservation(ObservationResponse currentObservation) {
-        this.currentObservation = currentObservation;
+    public void setCurrent_observation(ObservationResponse current_observation) {
+        this.current_observation = current_observation;
     }
 }

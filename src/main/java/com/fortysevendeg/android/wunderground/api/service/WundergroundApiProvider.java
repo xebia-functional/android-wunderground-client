@@ -33,6 +33,9 @@ public class WundergroundApiProvider {
     }
 
     public static WundergroundApiClient getClient() {
+        if (instance == null) {
+            instance = new WundergoundApiClientImpl();
+        }
         return instance;
     }
 }
