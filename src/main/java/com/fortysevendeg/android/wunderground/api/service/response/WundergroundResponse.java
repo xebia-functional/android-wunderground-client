@@ -28,20 +28,40 @@ import java.util.List;
 
 /**
  * WundergroundResponse class
+ *
+ * General class with all response data
+ *
  */
 public class WundergroundResponse extends AbstractJSONResponse implements Serializable {
 
     private InfoWundergroundResponse response;
 
+    /**
+     * @see AlertResponse
+     */
     private List<AlertResponse> alerts;
 
+    /**
+     * @see AlmanacResponse
+     */
     private AlmanacResponse almanac;
 
+    /**
+     * @see MoonPhaseResponse
+     */
     @JsonProperty("moon_phase")
     private MoonPhaseResponse moonPhase;
 
+    /**
+     * @see ObservationResponse
+     */
     @JsonProperty("current_observation")
     private ObservationResponse currentObservation;
+
+    /**
+     * @see ForecastResponse
+     */
+    private ForecastResponse forecast;
 
     public InfoWundergroundResponse getResponse() {
         return response;
@@ -81,5 +101,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setMoonPhase(MoonPhaseResponse moonPhase) {
         this.moonPhase = moonPhase;
+    }
+
+    public ForecastResponse getForecast() {
+        return forecast;
+    }
+
+    public void setForecast(ForecastResponse forecast) {
+        this.forecast = forecast;
     }
 }
