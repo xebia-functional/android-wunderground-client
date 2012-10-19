@@ -49,7 +49,7 @@ public enum Feature {
     /**
      * Returns a summary of the weather for the next 3 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
-    //forecast, //unsupported in this version
+    forecast,
     /**
      * Returns a summary of the weather for the next 10 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
