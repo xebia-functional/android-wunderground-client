@@ -20,9 +20,11 @@
 
 package com.fortysevendeg.android.wunderground.api.service.response;
 
+import it.restrung.rest.annotations.JsonProperty;
 import it.restrung.rest.marshalling.response.AbstractJSONResponse;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * WundergroundResponse class
@@ -31,7 +33,15 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     private InfoWundergroundResponse response;
 
-    private ObservationResponse current_observation;
+    private List<AlertResponse> alerts;
+
+    private AlmanacResponse almanac;
+
+    @JsonProperty("moon_phase")
+    private MoonPhaseResponse moonPhase;
+
+    @JsonProperty("current_observation")
+    private ObservationResponse currentObservation;
 
     public InfoWundergroundResponse getResponse() {
         return response;
@@ -41,11 +51,35 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
         this.response = response;
     }
 
-    public ObservationResponse getCurrent_observation() {
-        return current_observation;
+    public ObservationResponse getCurrentObservation() {
+        return currentObservation;
     }
 
-    public void setCurrent_observation(ObservationResponse current_observation) {
-        this.current_observation = current_observation;
+    public void setCurrentObservation(ObservationResponse currentObservation) {
+        this.currentObservation = currentObservation;
+    }
+
+    public List<AlertResponse> getAlerts() {
+        return alerts;
+    }
+
+    public void setAlerts(List<AlertResponse> alerts) {
+        this.alerts = alerts;
+    }
+
+    public AlmanacResponse getAlmanac() {
+        return almanac;
+    }
+
+    public void setAlmanac(AlmanacResponse almanac) {
+        this.almanac = almanac;
+    }
+
+    public MoonPhaseResponse getMoonPhase() {
+        return moonPhase;
+    }
+
+    public void setMoonPhase(MoonPhaseResponse moonPhase) {
+        this.moonPhase = moonPhase;
     }
 }

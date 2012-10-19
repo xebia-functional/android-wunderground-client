@@ -20,124 +20,180 @@
 
 package com.fortysevendeg.android.wunderground.api.service.response;
 
+import it.restrung.rest.annotations.JsonProperty;
 import it.restrung.rest.marshalling.response.AbstractJSONResponse;
 
 import java.io.Serializable;
 
 /**
  * ObservationResponse class
+ *
+ * http://www.wunderground.com/weather/api/d/docs?d=data/conditions
+ *
+ * Returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility
+ *
  */
 public class ObservationResponse extends AbstractJSONResponse implements Serializable {
 
     private ImageResponse image;
 
-    private LocationResponse display_location;
+    @JsonProperty("display_location")
+    private LocationResponse displayLocation;
 
-    private LocationResponse observation_location;
+    @JsonProperty("observation_location")
+    private LocationResponse observationLocation;
 
     private String estimated;
 
-    private String station_id;
+    @JsonProperty("station_id")
+    private String stationId;
 
-    private String observation_time;
+    @JsonProperty("observation_time")
+    private String observationTime;
 
-    private String observation_time_rfc822;
+    @JsonProperty("observation_time_rfc822")
+    private String observationTimeRfc822;
 
-    private String observation_epoch;
+    @JsonProperty("observation_epoch")
+    private String observationEpoch;
 
-    private String local_time_rfc822;
+    @JsonProperty("local_time_rfc822")
+    private String localTimeRfc822;
 
-    private String local_epoch;
+    @JsonProperty("local_epoch")
+    private String localEpoch;
 
-    private String local_tz_short;
+    @JsonProperty("local_tz_short")
+    private String localTzShort;
 
-    private String local_tz_long;
+    @JsonProperty("local_tz_long")
+    private String localTzLong;
 
-    private String local_tz_offset;
+    @JsonProperty("local_tz_offset")
+    private String localTzOffset;
 
     private String weather;
 
-    private String temperature_string;
+    @JsonProperty("temperature_string")
+    private String temperatureString;
 
-    private Double temp_f;
+    @JsonProperty("temp_f")
+    private Double tempF;
 
-    private Double temp_c;
+    @JsonProperty("temp_c")
+    private Double tempC;
 
-    private String relative_humidity;
+    @JsonProperty("relative_humidity")
+    private String relativeHumidity;
 
-    private String wind_string;
+    @JsonProperty("wind_string")
+    private String windString;
 
-    private String wind_dir;
+    @JsonProperty("wind_dir")
+    private String windDir;
 
-    private Double wind_degrees;
+    @JsonProperty("wind_degrees")
+    private Double windDegrees;
 
-    private Double wind_mph;
+    @JsonProperty("wind_mph")
+    private Double windMph;
 
-    private Double wind_gust_mph;
+    @JsonProperty("wind_gust_mph")
+    private Double windGustMph;
 
-    private Double wind_kph;
+    @JsonProperty("wind_kph")
+    private Double windKph;
 
-    private Double wind_gust_kph;
+    @JsonProperty("wind_gust_kph")
+    private Double windGustKph;
 
-    private Double pressure_mb;
+    @JsonProperty("pressure_mb")
+    private Double pressureMb;
 
-    private Double pressure_in;
+    @JsonProperty("pressure_in")
+    private Double pressureIn;
 
-    private String pressure_trend;
+    @JsonProperty("pressure_trend")
+    private String pressureTrend;
 
-    private String dewpoint_string;
+    @JsonProperty("dewpoint_string")
+    private String dewPointString;
 
-    private Double dewpoint_f;
+    @JsonProperty("dewpoint_f")
+    private Double dewPointF;
 
-    private Double dewpoint_c;
+    @JsonProperty("dewpoint_c")
+    private Double dewPointC;
 
-    private String heat_index_string;
+    @JsonProperty("heat_index_string")
+    private String heatIndexString;
 
-    private String heat_index_f;
+    @JsonProperty("heat_index_f")
+    private String heatIndexF;
 
-    private String heat_index_c;
+    @JsonProperty("heat_index_c")
+    private String heatIndexC;
 
-    private String windchill_string;
+    @JsonProperty("windchill_string")
+    private String windChillString;
 
-    private String windchill_f;
+    @JsonProperty("windchill_f")
+    private String windChillF;
 
-    private String windchill_c;
+    @JsonProperty("windchill_c")
+    private String windChillC;
 
-    private String feelslike_string;
+    @JsonProperty("feelslike_string")
+    private String feelsLikeString;
 
-    private Double feelslike_f;
+    @JsonProperty("feelslike_f")
+    private Double feelsLikeF;
 
-    private Double feelslike_c;
+    @JsonProperty("feelslike_c")
+    private Double feelsLikeC;
 
-    private Double visibility_mi;
+    @JsonProperty("visibility_mi")
+    private Double visibilityMi;
 
-    private Double visibility_km;
+    @JsonProperty("visibility_km")
+    private Double visibilityKm;
 
-    private String solarradiation;
+    @JsonProperty("solarradiation")
+    private String solarRadiation;
 
     private Double uV;
 
-    private String precip_1hr_string;
+    @JsonProperty("precip_1hr_string")
+    private String precip1hrString;
 
-    private String precip_1hr_in;
+    @JsonProperty("precip_1hr_in")
+    private String precip1hrIn;
 
-    private String precip_1hr_metric;
+    @JsonProperty("precip_1hr_metric")
+    private String precip1hrMetric;
 
-    private String precip_today_string;
+    @JsonProperty("precip_today_string")
+    private String precipTodayString;
 
-    private String precip_today_in;
+    @JsonProperty("precip_today_in")
+    private String precipTodayIn;
 
-    private String precip_today_metric;
+    @JsonProperty("precip_today_metric")
+    private String precipTodayMetric;
 
     private String icon;
 
-    private String icon_url;
+    @JsonProperty("icon_url")
+    private String iconUrl;
 
-    private String forecast_url;
+    @JsonProperty("forecast_url")
+    private String forecastUrl;
 
-    private String history_url;
+    @JsonProperty("history_url")
+    private String historyUrl;
 
-    private String ob_url;
+    @JsonProperty("ob_url")
+    private String obUrl;
 
     public ImageResponse getImage() {
         return image;
@@ -147,20 +203,20 @@ public class ObservationResponse extends AbstractJSONResponse implements Seriali
         this.image = image;
     }
 
-    public LocationResponse getDisplay_location() {
-        return display_location;
+    public LocationResponse getDisplayLocation() {
+        return displayLocation;
     }
 
-    public void setDisplay_location(LocationResponse display_location) {
-        this.display_location = display_location;
+    public void setDisplayLocation(LocationResponse displayLocation) {
+        this.displayLocation = displayLocation;
     }
 
-    public LocationResponse getObservation_location() {
-        return observation_location;
+    public LocationResponse getObservationLocation() {
+        return observationLocation;
     }
 
-    public void setObservation_location(LocationResponse observation_location) {
-        this.observation_location = observation_location;
+    public void setObservationLocation(LocationResponse observationLocation) {
+        this.observationLocation = observationLocation;
     }
 
     public String getEstimated() {
@@ -171,76 +227,76 @@ public class ObservationResponse extends AbstractJSONResponse implements Seriali
         this.estimated = estimated;
     }
 
-    public String getStation_id() {
-        return station_id;
+    public String getStationId() {
+        return stationId;
     }
 
-    public void setStation_id(String station_id) {
-        this.station_id = station_id;
+    public void setStationId(String stationId) {
+        this.stationId = stationId;
     }
 
-    public String getObservation_time() {
-        return observation_time;
+    public String getObservationTime() {
+        return observationTime;
     }
 
-    public void setObservation_time(String observation_time) {
-        this.observation_time = observation_time;
+    public void setObservationTime(String observationTime) {
+        this.observationTime = observationTime;
     }
 
-    public String getObservation_time_rfc822() {
-        return observation_time_rfc822;
+    public String getObservationTimeRfc822() {
+        return observationTimeRfc822;
     }
 
-    public void setObservation_time_rfc822(String observation_time_rfc822) {
-        this.observation_time_rfc822 = observation_time_rfc822;
+    public void setObservationTimeRfc822(String observationTimeRfc822) {
+        this.observationTimeRfc822 = observationTimeRfc822;
     }
 
-    public String getObservation_epoch() {
-        return observation_epoch;
+    public String getObservationEpoch() {
+        return observationEpoch;
     }
 
-    public void setObservation_epoch(String observation_epoch) {
-        this.observation_epoch = observation_epoch;
+    public void setObservationEpoch(String observationEpoch) {
+        this.observationEpoch = observationEpoch;
     }
 
-    public String getLocal_time_rfc822() {
-        return local_time_rfc822;
+    public String getLocalTimeRfc822() {
+        return localTimeRfc822;
     }
 
-    public void setLocal_time_rfc822(String local_time_rfc822) {
-        this.local_time_rfc822 = local_time_rfc822;
+    public void setLocalTimeRfc822(String localTimeRfc822) {
+        this.localTimeRfc822 = localTimeRfc822;
     }
 
-    public String getLocal_epoch() {
-        return local_epoch;
+    public String getLocalEpoch() {
+        return localEpoch;
     }
 
-    public void setLocal_epoch(String local_epoch) {
-        this.local_epoch = local_epoch;
+    public void setLocalEpoch(String localEpoch) {
+        this.localEpoch = localEpoch;
     }
 
-    public String getLocal_tz_short() {
-        return local_tz_short;
+    public String getLocalTzShort() {
+        return localTzShort;
     }
 
-    public void setLocal_tz_short(String local_tz_short) {
-        this.local_tz_short = local_tz_short;
+    public void setLocalTzShort(String localTzShort) {
+        this.localTzShort = localTzShort;
     }
 
-    public String getLocal_tz_long() {
-        return local_tz_long;
+    public String getLocalTzLong() {
+        return localTzLong;
     }
 
-    public void setLocal_tz_long(String local_tz_long) {
-        this.local_tz_long = local_tz_long;
+    public void setLocalTzLong(String localTzLong) {
+        this.localTzLong = localTzLong;
     }
 
-    public String getLocal_tz_offset() {
-        return local_tz_offset;
+    public String getLocalTzOffset() {
+        return localTzOffset;
     }
 
-    public void setLocal_tz_offset(String local_tz_offset) {
-        this.local_tz_offset = local_tz_offset;
+    public void setLocalTzOffset(String localTzOffset) {
+        this.localTzOffset = localTzOffset;
     }
 
     public String getWeather() {
@@ -251,236 +307,236 @@ public class ObservationResponse extends AbstractJSONResponse implements Seriali
         this.weather = weather;
     }
 
-    public String getTemperature_string() {
-        return temperature_string;
+    public String getTemperatureString() {
+        return temperatureString;
     }
 
-    public void setTemperature_string(String temperature_string) {
-        this.temperature_string = temperature_string;
+    public void setTemperatureString(String temperatureString) {
+        this.temperatureString = temperatureString;
     }
 
-    public Double getTemp_f() {
-        return temp_f;
+    public Double getTempF() {
+        return tempF;
     }
 
-    public void setTemp_f(Double temp_f) {
-        this.temp_f = temp_f;
+    public void setTempF(Double tempF) {
+        this.tempF = tempF;
     }
 
-    public Double getTemp_c() {
-        return temp_c;
+    public Double getTempC() {
+        return tempC;
     }
 
-    public void setTemp_c(Double temp_c) {
-        this.temp_c = temp_c;
+    public void setTempC(Double tempC) {
+        this.tempC = tempC;
     }
 
-    public String getRelative_humidity() {
-        return relative_humidity;
+    public String getRelativeHumidity() {
+        return relativeHumidity;
     }
 
-    public void setRelative_humidity(String relative_humidity) {
-        this.relative_humidity = relative_humidity;
+    public void setRelativeHumidity(String relativeHumidity) {
+        this.relativeHumidity = relativeHumidity;
     }
 
-    public String getWind_string() {
-        return wind_string;
+    public String getWindString() {
+        return windString;
     }
 
-    public void setWind_string(String wind_string) {
-        this.wind_string = wind_string;
+    public void setWindString(String windString) {
+        this.windString = windString;
     }
 
-    public String getWind_dir() {
-        return wind_dir;
+    public String getWindDir() {
+        return windDir;
     }
 
-    public void setWind_dir(String wind_dir) {
-        this.wind_dir = wind_dir;
+    public void setWindDir(String windDir) {
+        this.windDir = windDir;
     }
 
-    public Double getWind_degrees() {
-        return wind_degrees;
+    public Double getWindDegrees() {
+        return windDegrees;
     }
 
-    public void setWind_degrees(Double wind_degrees) {
-        this.wind_degrees = wind_degrees;
+    public void setWindDegrees(Double windDegrees) {
+        this.windDegrees = windDegrees;
     }
 
-    public Double getWind_mph() {
-        return wind_mph;
+    public Double getWindMph() {
+        return windMph;
     }
 
-    public void setWind_mph(Double wind_mph) {
-        this.wind_mph = wind_mph;
+    public void setWindMph(Double windMph) {
+        this.windMph = windMph;
     }
 
-    public Double getWind_gust_mph() {
-        return wind_gust_mph;
+    public Double getWindGustMph() {
+        return windGustMph;
     }
 
-    public void setWind_gust_mph(Double wind_gust_mph) {
-        this.wind_gust_mph = wind_gust_mph;
+    public void setWindGustMph(Double windGustMph) {
+        this.windGustMph = windGustMph;
     }
 
-    public Double getWind_kph() {
-        return wind_kph;
+    public Double getWindKph() {
+        return windKph;
     }
 
-    public void setWind_kph(Double wind_kph) {
-        this.wind_kph = wind_kph;
+    public void setWindKph(Double windKph) {
+        this.windKph = windKph;
     }
 
-    public Double getWind_gust_kph() {
-        return wind_gust_kph;
+    public Double getWindGustKph() {
+        return windGustKph;
     }
 
-    public void setWind_gust_kph(Double wind_gust_kph) {
-        this.wind_gust_kph = wind_gust_kph;
+    public void setWindGustKph(Double windGustKph) {
+        this.windGustKph = windGustKph;
     }
 
-    public Double getPressure_mb() {
-        return pressure_mb;
+    public Double getPressureMb() {
+        return pressureMb;
     }
 
-    public void setPressure_mb(Double pressure_mb) {
-        this.pressure_mb = pressure_mb;
+    public void setPressureMb(Double pressureMb) {
+        this.pressureMb = pressureMb;
     }
 
-    public Double getPressure_in() {
-        return pressure_in;
+    public Double getPressureIn() {
+        return pressureIn;
     }
 
-    public void setPressure_in(Double pressure_in) {
-        this.pressure_in = pressure_in;
+    public void setPressureIn(Double pressureIn) {
+        this.pressureIn = pressureIn;
     }
 
-    public String getPressure_trend() {
-        return pressure_trend;
+    public String getPressureTrend() {
+        return pressureTrend;
     }
 
-    public void setPressure_trend(String pressure_trend) {
-        this.pressure_trend = pressure_trend;
+    public void setPressureTrend(String pressureTrend) {
+        this.pressureTrend = pressureTrend;
     }
 
-    public String getDewpoint_string() {
-        return dewpoint_string;
+    public String getDewPointString() {
+        return dewPointString;
     }
 
-    public void setDewpoint_string(String dewpoint_string) {
-        this.dewpoint_string = dewpoint_string;
+    public void setDewPointString(String dewPointString) {
+        this.dewPointString = dewPointString;
     }
 
-    public Double getDewpoint_f() {
-        return dewpoint_f;
+    public Double getDewPointF() {
+        return dewPointF;
     }
 
-    public void setDewpoint_f(Double dewpoint_f) {
-        this.dewpoint_f = dewpoint_f;
+    public void setDewPointF(Double dewPointF) {
+        this.dewPointF = dewPointF;
     }
 
-    public Double getDewpoint_c() {
-        return dewpoint_c;
+    public Double getDewPointC() {
+        return dewPointC;
     }
 
-    public void setDewpoint_c(Double dewpoint_c) {
-        this.dewpoint_c = dewpoint_c;
+    public void setDewPointC(Double dewPointC) {
+        this.dewPointC = dewPointC;
     }
 
-    public String getHeat_index_string() {
-        return heat_index_string;
+    public String getHeatIndexString() {
+        return heatIndexString;
     }
 
-    public void setHeat_index_string(String heat_index_string) {
-        this.heat_index_string = heat_index_string;
+    public void setHeatIndexString(String heatIndexString) {
+        this.heatIndexString = heatIndexString;
     }
 
-    public String getHeat_index_f() {
-        return heat_index_f;
+    public String getHeatIndexF() {
+        return heatIndexF;
     }
 
-    public void setHeat_index_f(String heat_index_f) {
-        this.heat_index_f = heat_index_f;
+    public void setHeatIndexF(String heatIndexF) {
+        this.heatIndexF = heatIndexF;
     }
 
-    public String getHeat_index_c() {
-        return heat_index_c;
+    public String getHeatIndexC() {
+        return heatIndexC;
     }
 
-    public void setHeat_index_c(String heat_index_c) {
-        this.heat_index_c = heat_index_c;
+    public void setHeatIndexC(String heatIndexC) {
+        this.heatIndexC = heatIndexC;
     }
 
-    public String getWindchill_string() {
-        return windchill_string;
+    public String getWindChillString() {
+        return windChillString;
     }
 
-    public void setWindchill_string(String windchill_string) {
-        this.windchill_string = windchill_string;
+    public void setWindChillString(String windChillString) {
+        this.windChillString = windChillString;
     }
 
-    public String getWindchill_f() {
-        return windchill_f;
+    public String getWindChillF() {
+        return windChillF;
     }
 
-    public void setWindchill_f(String windchill_f) {
-        this.windchill_f = windchill_f;
+    public void setWindChillF(String windChillF) {
+        this.windChillF = windChillF;
     }
 
-    public String getWindchill_c() {
-        return windchill_c;
+    public String getWindChillC() {
+        return windChillC;
     }
 
-    public void setWindchill_c(String windchill_c) {
-        this.windchill_c = windchill_c;
+    public void setWindChillC(String windChillC) {
+        this.windChillC = windChillC;
     }
 
-    public String getFeelslike_string() {
-        return feelslike_string;
+    public String getFeelsLikeString() {
+        return feelsLikeString;
     }
 
-    public void setFeelslike_string(String feelslike_string) {
-        this.feelslike_string = feelslike_string;
+    public void setFeelsLikeString(String feelsLikeString) {
+        this.feelsLikeString = feelsLikeString;
     }
 
-    public Double getFeelslike_f() {
-        return feelslike_f;
+    public Double getFeelsLikeF() {
+        return feelsLikeF;
     }
 
-    public void setFeelslike_f(Double feelslike_f) {
-        this.feelslike_f = feelslike_f;
+    public void setFeelsLikeF(Double feelsLikeF) {
+        this.feelsLikeF = feelsLikeF;
     }
 
-    public Double getFeelslike_c() {
-        return feelslike_c;
+    public Double getFeelsLikeC() {
+        return feelsLikeC;
     }
 
-    public void setFeelslike_c(Double feelslike_c) {
-        this.feelslike_c = feelslike_c;
+    public void setFeelsLikeC(Double feelsLikeC) {
+        this.feelsLikeC = feelsLikeC;
     }
 
-    public Double getVisibility_mi() {
-        return visibility_mi;
+    public Double getVisibilityMi() {
+        return visibilityMi;
     }
 
-    public void setVisibility_mi(Double visibility_mi) {
-        this.visibility_mi = visibility_mi;
+    public void setVisibilityMi(Double visibilityMi) {
+        this.visibilityMi = visibilityMi;
     }
 
-    public Double getVisibility_km() {
-        return visibility_km;
+    public Double getVisibilityKm() {
+        return visibilityKm;
     }
 
-    public void setVisibility_km(Double visibility_km) {
-        this.visibility_km = visibility_km;
+    public void setVisibilityKm(Double visibilityKm) {
+        this.visibilityKm = visibilityKm;
     }
 
-    public String getSolarradiation() {
-        return solarradiation;
+    public String getSolarRadiation() {
+        return solarRadiation;
     }
 
-    public void setSolarradiation(String solarradiation) {
-        this.solarradiation = solarradiation;
+    public void setSolarRadiation(String solarRadiation) {
+        this.solarRadiation = solarRadiation;
     }
 
     public Double getuV() {
@@ -491,52 +547,52 @@ public class ObservationResponse extends AbstractJSONResponse implements Seriali
         this.uV = uV;
     }
 
-    public String getPrecip_1hr_string() {
-        return precip_1hr_string;
+    public String getPrecip1hrString() {
+        return precip1hrString;
     }
 
-    public void setPrecip_1hr_string(String precip_1hr_string) {
-        this.precip_1hr_string = precip_1hr_string;
+    public void setPrecip1hrString(String precip1hrString) {
+        this.precip1hrString = precip1hrString;
     }
 
-    public String getPrecip_1hr_in() {
-        return precip_1hr_in;
+    public String getPrecip1hrIn() {
+        return precip1hrIn;
     }
 
-    public void setPrecip_1hr_in(String precip_1hr_in) {
-        this.precip_1hr_in = precip_1hr_in;
+    public void setPrecip1hrIn(String precip1hrIn) {
+        this.precip1hrIn = precip1hrIn;
     }
 
-    public String getPrecip_1hr_metric() {
-        return precip_1hr_metric;
+    public String getPrecip1hrMetric() {
+        return precip1hrMetric;
     }
 
-    public void setPrecip_1hr_metric(String precip_1hr_metric) {
-        this.precip_1hr_metric = precip_1hr_metric;
+    public void setPrecip1hrMetric(String precip1hrMetric) {
+        this.precip1hrMetric = precip1hrMetric;
     }
 
-    public String getPrecip_today_string() {
-        return precip_today_string;
+    public String getPrecipTodayString() {
+        return precipTodayString;
     }
 
-    public void setPrecip_today_string(String precip_today_string) {
-        this.precip_today_string = precip_today_string;
+    public void setPrecipTodayString(String precipTodayString) {
+        this.precipTodayString = precipTodayString;
     }
 
-    public String getPrecip_today_in() {
-        return precip_today_in;
+    public String getPrecipTodayIn() {
+        return precipTodayIn;
     }
 
-    public void setPrecip_today_in(String precip_today_in) {
-        this.precip_today_in = precip_today_in;
+    public void setPrecipTodayIn(String precipTodayIn) {
+        this.precipTodayIn = precipTodayIn;
     }
 
-    public String getPrecip_today_metric() {
-        return precip_today_metric;
+    public String getPrecipTodayMetric() {
+        return precipTodayMetric;
     }
 
-    public void setPrecip_today_metric(String precip_today_metric) {
-        this.precip_today_metric = precip_today_metric;
+    public void setPrecipTodayMetric(String precipTodayMetric) {
+        this.precipTodayMetric = precipTodayMetric;
     }
 
     public String getIcon() {
@@ -547,35 +603,35 @@ public class ObservationResponse extends AbstractJSONResponse implements Seriali
         this.icon = icon;
     }
 
-    public String getIcon_url() {
-        return icon_url;
+    public String getIconUrl() {
+        return iconUrl;
     }
 
-    public void setIcon_url(String icon_url) {
-        this.icon_url = icon_url;
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 
-    public String getForecast_url() {
-        return forecast_url;
+    public String getForecastUrl() {
+        return forecastUrl;
     }
 
-    public void setForecast_url(String forecast_url) {
-        this.forecast_url = forecast_url;
+    public void setForecastUrl(String forecastUrl) {
+        this.forecastUrl = forecastUrl;
     }
 
-    public String getHistory_url() {
-        return history_url;
+    public String getHistoryUrl() {
+        return historyUrl;
     }
 
-    public void setHistory_url(String history_url) {
-        this.history_url = history_url;
+    public void setHistoryUrl(String historyUrl) {
+        this.historyUrl = historyUrl;
     }
 
-    public String getOb_url() {
-        return ob_url;
+    public String getObUrl() {
+        return obUrl;
     }
 
-    public void setOb_url(String ob_url) {
-        this.ob_url = ob_url;
+    public void setObUrl(String obUrl) {
+        this.obUrl = obUrl;
     }
 }

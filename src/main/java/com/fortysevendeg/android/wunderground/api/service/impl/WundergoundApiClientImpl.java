@@ -43,6 +43,10 @@ public class WundergoundApiClientImpl implements WundergroundApiClient {
         return String.format("%s%s", endpoint, path);
     }
 
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
     @Override
     public void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Query query, Feature... features) {
         query(delegate, apiKey, null, query, features);
@@ -53,7 +57,7 @@ public class WundergoundApiClientImpl implements WundergroundApiClient {
         if (settings != null) {
             client.getAsync(delegate, getEndpoint("/%s/%s/%s/q/%s.json"), apiKey, TextUtils.join("/", features), TextUtils.join("/", settings.getValue()), query.getValue());
         } else {
-            client.getAsync(delegate, getEndpoint("/%s/%s/q/%s.json"), apiKey, TextUtils.join("/", features), query.getValue());
+            client.getAsync(delegate, getEndpoint("/%s/" + TextUtils.join("/", features) + "/q/%s.json"), apiKey, query.getValue());
         }
     }
 }

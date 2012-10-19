@@ -45,49 +45,49 @@ public enum Feature {
     /**
      * Returns the current position, forecast, and track of all current hurricanes.
      */
-    currenthurricane,
+    //currenthurricane, //unsupported in this version
     /**
      * Returns a summary of the weather for the next 3 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
-    forecast,
+    //forecast, //unsupported in this version
     /**
      * Returns a summary of the weather for the next 10 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
-    forecast10day,
+    //forecast10day, //unsupported in this version
     /**
      * Returns the the city name, zip code / postal code, latitude-longitude coordinates and nearby personal weather stations.
      */
-    geolookup,
+    //geolookup, //unsupported in this version
     /**
      * history_YYYYMMDD returns a summary of the observed weather for the specified date.
      */
-    history,
+    //history, //unsupported in this version
     /**
      * Returns an hourly forecast for the next 36 hours immediately following the API request.
      */
-    hourly,
+    //hourly, //unsupported in this version
     /**
      * Returns an hourly forecast for the next 10 days
      */
-    hourly10day,
+    //hourly10day, //unsupported in this version
     /**
      * planner_MMDDMMDD returns a weather summary based on historical information between the specified dates (30 days max).
      */
-    planner,
+    //planner, //unsupported in this version
     /**
      * Raw Tidal information for graphs
      */
-    rawtide,
+    //rawtide, //unsupported in this version
     /**
      * Tidal information
      */
-    tide,
+    //tide,  //unsupported in this version
     /**
      * Returns locations of nearby Personal Weather Stations and URL's for images from their web cams.
      */
-    webcams,
+    //webcams,  //unsupported in this version
     /**
      * Returns a summary of the observed weather history for yesterday.
      */
-    yesterday
+    //yesterday  //unsupported in this version
 }
