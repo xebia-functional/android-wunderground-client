@@ -63,6 +63,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
      */
     private ForecastResponse forecast;
 
+    /**
+     * @see GeoLookupLocationsResponse
+     */
+    @JsonProperty("location")
+    private GeoLookupLocationsResponse geoLookupLocation;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -109,5 +115,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setForecast(ForecastResponse forecast) {
         this.forecast = forecast;
+    }
+
+    public GeoLookupLocationsResponse getGeoLookupLocation() {
+        return geoLookupLocation;
+    }
+
+    public void setGeoLookupLocation(GeoLookupLocationsResponse geoLookupLocation) {
+        this.geoLookupLocation = geoLookupLocation;
     }
 }

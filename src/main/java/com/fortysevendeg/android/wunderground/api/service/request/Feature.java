@@ -53,11 +53,11 @@ public enum Feature {
     /**
      * Returns a summary of the weather for the next 10 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
-    //forecast10day, //unsupported in this version
+    forecast10day,
     /**
      * Returns the the city name, zip code / postal code, latitude-longitude coordinates and nearby personal weather stations.
      */
-    //geolookup, //unsupported in this version
+    geolookup,
     /**
      * history_YYYYMMDD returns a summary of the observed weather for the specified date.
      */
