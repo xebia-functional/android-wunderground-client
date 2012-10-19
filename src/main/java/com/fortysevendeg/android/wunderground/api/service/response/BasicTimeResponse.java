@@ -18,24 +18,35 @@
  *
  */
 
-package com.fortysevendeg.android.wunderground.api.service;
+package com.fortysevendeg.android.wunderground.api.service.response;
 
-import com.fortysevendeg.android.wunderground.api.service.impl.WundergoundApiClientImpl;
+
+import it.restrung.rest.marshalling.response.AbstractJSONResponse;
+
+import java.io.Serializable;
 
 /**
- * Factory for api clients
+ * BasicTimeResponse class
  */
-public class WundergroundApiProvider {
+public class BasicTimeResponse extends AbstractJSONResponse implements Serializable {
 
-    private static WundergroundApiClient instance = new WundergoundApiClientImpl();
+    private int hour;
 
-    private WundergroundApiProvider() {
+    private int minute;
+
+    public int getHour() {
+        return hour;
     }
 
-    public static WundergroundApiClient getClient() {
-        if (instance == null) {
-            instance = new WundergoundApiClientImpl();
-        }
-        return instance;
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 }

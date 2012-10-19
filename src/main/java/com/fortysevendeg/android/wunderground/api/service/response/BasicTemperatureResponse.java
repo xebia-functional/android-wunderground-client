@@ -18,24 +18,34 @@
  *
  */
 
-package com.fortysevendeg.android.wunderground.api.service;
+package com.fortysevendeg.android.wunderground.api.service.response;
 
-import com.fortysevendeg.android.wunderground.api.service.impl.WundergoundApiClientImpl;
+import it.restrung.rest.marshalling.response.AbstractJSONResponse;
+
+import java.io.Serializable;
 
 /**
- * Factory for api clients
+ * BasicTemperatureResponse class
  */
-public class WundergroundApiProvider {
+public class BasicTemperatureResponse extends AbstractJSONResponse implements Serializable {
 
-    private static WundergroundApiClient instance = new WundergoundApiClientImpl();
+    private int f;
 
-    private WundergroundApiProvider() {
+    private int c;
+
+    public int getF() {
+        return f;
     }
 
-    public static WundergroundApiClient getClient() {
-        if (instance == null) {
-            instance = new WundergoundApiClientImpl();
-        }
-        return instance;
+    public void setF(int f) {
+        this.f = f;
+    }
+
+    public int getC() {
+        return c;
+    }
+
+    public void setC(int c) {
+        this.c = c;
     }
 }

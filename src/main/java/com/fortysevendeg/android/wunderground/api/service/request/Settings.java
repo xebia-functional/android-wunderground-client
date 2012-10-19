@@ -18,24 +18,24 @@
  *
  */
 
-package com.fortysevendeg.android.wunderground.api.service;
-
-import com.fortysevendeg.android.wunderground.api.service.impl.WundergoundApiClientImpl;
+package com.fortysevendeg.android.wunderground.api.service.request;
 
 /**
- * Factory for api clients
+ * http://www.wunderground.com/weather/api/d/docs?d=data/index#standard_request_url_format
  */
-public class WundergroundApiProvider {
+public class Settings {
 
-    private static WundergroundApiClient instance = new WundergoundApiClientImpl();
+    private Setting[] value;
 
-    private WundergroundApiProvider() {
+    private Settings(Setting[] value) {
+        this.value = value;
     }
 
-    public static WundergroundApiClient getClient() {
-        if (instance == null) {
-            instance = new WundergoundApiClientImpl();
-        }
-        return instance;
+    public static Settings value(Setting... value) {
+        return new Settings(value);
+    }
+
+    public Setting[] getValue() {
+        return value;
     }
 }
