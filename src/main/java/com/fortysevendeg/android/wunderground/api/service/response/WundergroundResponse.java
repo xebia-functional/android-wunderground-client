@@ -69,6 +69,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("location")
     private GeoLookupLocationsResponse geoLookupLocation;
 
+    /**
+     * @see RawTideResponse
+     */
+    @JsonProperty("rawtide")
+    private RawTideResponse rawTide;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -123,5 +129,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setGeoLookupLocation(GeoLookupLocationsResponse geoLookupLocation) {
         this.geoLookupLocation = geoLookupLocation;
+    }
+
+    public RawTideResponse getRawTide() {
+        return rawTide;
+    }
+
+    public void setRawTide(RawTideResponse rawTide) {
+        this.rawTide = rawTide;
     }
 }
