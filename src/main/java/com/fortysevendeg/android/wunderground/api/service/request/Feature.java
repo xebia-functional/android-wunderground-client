@@ -77,7 +77,7 @@ public enum Feature {
     /**
      * Raw Tidal information for graphs
      */
-    //rawtide, //unsupported in this version
+    rawtide,
     /**
      * Tidal information
      */
