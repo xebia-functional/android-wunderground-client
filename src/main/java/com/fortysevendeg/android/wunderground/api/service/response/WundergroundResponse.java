@@ -75,6 +75,11 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("rawtide")
     private RawTideResponse rawTide;
 
+    /**
+     * @see SatelliteResponse
+     */
+    private SatelliteResponse satellite;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -137,5 +142,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setRawTide(RawTideResponse rawTide) {
         this.rawTide = rawTide;
+    }
+
+    public SatelliteResponse getSatellite() {
+        return satellite;
+    }
+
+    public void setSatellite(SatelliteResponse satellite) {
+        this.satellite = satellite;
     }
 }

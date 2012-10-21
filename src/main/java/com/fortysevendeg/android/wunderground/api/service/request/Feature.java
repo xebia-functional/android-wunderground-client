@@ -79,6 +79,10 @@ public enum Feature {
      */
     rawtide,
     /**
+     * Returns a URL link to .gif visual and infrared satellite images.
+     */
+    satellite,
+    /**
      * Tidal information
      */
     //tide,  //unsupported in this version
