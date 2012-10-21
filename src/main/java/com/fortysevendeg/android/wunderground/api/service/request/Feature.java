@@ -85,7 +85,7 @@ public enum Feature {
     /**
      * Tidal information
      */
-    //tide,  //unsupported in this version
+    tide,
     /**
      * Returns locations of nearby Personal Weather Stations and URL's for images from their web cams.
      */
