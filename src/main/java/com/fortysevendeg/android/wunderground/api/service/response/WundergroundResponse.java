@@ -80,6 +80,11 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
      */
     private SatelliteResponse satellite;
 
+    /**
+     * @see TideResponse
+     */
+    private TideResponse tide;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -150,5 +155,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setSatellite(SatelliteResponse satellite) {
         this.satellite = satellite;
+    }
+
+    public TideResponse getTide() {
+        return tide;
+    }
+
+    public void setTide(TideResponse tide) {
+        this.tide = tide;
     }
 }
