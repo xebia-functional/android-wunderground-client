@@ -85,6 +85,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
      */
     private TideResponse tide;
 
+    /**
+     * @see WebCamResponse
+     */
+    @JsonProperty("webcams")
+    private List<WebCamResponse> webCams;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -163,5 +169,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setTide(TideResponse tide) {
         this.tide = tide;
+    }
+
+    public List<WebCamResponse> getWebCams() {
+        return webCams;
+    }
+
+    public void setWebCams(List<WebCamResponse> webCams) {
+        this.webCams = webCams;
     }
 }
