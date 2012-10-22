@@ -89,7 +89,7 @@ public enum Feature {
     /**
      * Returns locations of nearby Personal Weather Stations and URL's for images from their web cams.
      */
-    //webcams,  //unsupported in this version
+    webcams,
     /**
      * Returns a summary of the observed weather history for yesterday.
      */
