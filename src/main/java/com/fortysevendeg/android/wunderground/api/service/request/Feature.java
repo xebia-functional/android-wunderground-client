@@ -93,5 +93,5 @@ public enum Feature {
     /**
      * Returns a summary of the observed weather history for yesterday.
      */
-    //yesterday  //unsupported in this version
+    yesterday
 }
