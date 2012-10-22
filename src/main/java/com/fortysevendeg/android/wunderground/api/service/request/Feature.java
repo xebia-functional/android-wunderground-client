@@ -65,7 +65,7 @@ public enum Feature {
     /**
      * Returns an hourly forecast for the next 36 hours immediately following the API request.
      */
-    //hourly, //unsupported in this version
+    hourly,
     /**
      * Returns an hourly forecast for the next 10 days
      */

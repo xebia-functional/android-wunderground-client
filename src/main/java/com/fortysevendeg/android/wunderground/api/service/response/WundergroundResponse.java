@@ -97,6 +97,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("history")
     private YesterdayResponse yesterday;
 
+    /**
+     * @see HourlyResponse
+     */
+    @JsonProperty("hourly_forecast")
+    private List<HourlyResponse> hourlyList;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -191,5 +197,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setYesterday(YesterdayResponse yesterday) {
         this.yesterday = yesterday;
+    }
+
+    public List<HourlyResponse> getHourlyList() {
+        return hourlyList;
+    }
+
+    public void setHourlyList(List<HourlyResponse> hourlyList) {
+        this.hourlyList = hourlyList;
     }
 }
