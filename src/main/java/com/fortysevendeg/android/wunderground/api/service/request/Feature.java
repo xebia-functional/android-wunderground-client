@@ -45,7 +45,7 @@ public enum Feature {
     /**
      * Returns the current position, forecast, and track of all current hurricanes.
      */
-    //currenthurricane, //unsupported in this version
+    currenthurricane,
     /**
      * Returns a summary of the weather for the next 3 days. This includes high and low temperatures, a string text forecast and the conditions.
      */
@@ -69,7 +69,7 @@ public enum Feature {
     /**
      * Returns an hourly forecast for the next 10 days
      */
-    //hourly10day, //unsupported in this version
+    hourly10day,
     /**
      * planner_MMDDMMDD returns a weather summary based on historical information between the specified dates (30 days max).
      */
