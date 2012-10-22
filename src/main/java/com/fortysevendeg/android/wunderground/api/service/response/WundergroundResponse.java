@@ -103,6 +103,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("hourly_forecast")
     private List<HourlyResponse> hourlyList;
 
+    /**
+     * @see CurrentHurricaneResponse
+     */
+    @JsonProperty("currenthurricane")
+    private List<CurrentHurricaneResponse> currentHurricanes;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -205,5 +211,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setHourlyList(List<HourlyResponse> hourlyList) {
         this.hourlyList = hourlyList;
+    }
+
+    public List<CurrentHurricaneResponse> getCurrentHurricanes() {
+        return currentHurricanes;
+    }
+
+    public void setCurrentHurricanes(List<CurrentHurricaneResponse> currentHurricanes) {
+        this.currentHurricanes = currentHurricanes;
     }
 }
