@@ -91,6 +91,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("webcams")
     private List<WebCamResponse> webCams;
 
+    /**
+     * @see YesterdayResponse
+     */
+    @JsonProperty("history")
+    private YesterdayResponse yesterday;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -177,5 +183,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setWebCams(List<WebCamResponse> webCams) {
         this.webCams = webCams;
+    }
+
+    public YesterdayResponse getYesterday() {
+        return yesterday;
+    }
+
+    public void setYesterday(YesterdayResponse yesterday) {
+        this.yesterday = yesterday;
     }
 }
