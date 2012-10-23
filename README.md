@@ -29,7 +29,7 @@ void query(APIDelegate<WundergroundResponse> delegate,
 
 ## Params
 
-### ApiKey param
+### ApiKey
 
 Your api key for wunderground's Weather API. [Get here](http://www.wunderground.com/weather/api/)
 
@@ -90,7 +90,7 @@ Query.latLng(37.8,-122.4)
 
 ### FeatureParam
 
-One or more of the following data features. Note that these can be combined into a single request. List feature params [here](http://www.wunderground.com/weather/api/d/docs?d=data/index)
+One or more of the following data features. Note that these can be combined into a single request. Complete list feature params [here](http://www.wunderground.com/weather/api/d/docs?d=data/index)
 
 **alerts** Returns the short name description, expiration time and a long text description of a severe alert — if one has been issued for the searched upon location.
 
@@ -106,7 +106,7 @@ One or more of the following data features. Note that these can be combined into
 
 ```java
 withSuffix(Feature.history, "20120810")
-``
+```
 
 ## Examples of use
 
