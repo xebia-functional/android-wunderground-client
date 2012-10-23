@@ -61,7 +61,7 @@ public enum Feature implements FeatureParam {
     /**
      * history_YYYYMMDD returns a summary of the observed weather for the specified date.
      */
-    //history, //unsupported in this version
+    history,
     /**
      * Returns an hourly forecast for the next 36 hours immediately following the API request.
      */
