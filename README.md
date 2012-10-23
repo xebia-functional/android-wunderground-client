@@ -17,7 +17,7 @@ Android-wunderground-client used the [RESTrung](https://github.com/47deg/restrun
 
 # Usage
 
-This library only has a method called "query". This method returned a WundergroundResponse class with all data of Wunderground's api.
+This library only has a method called "query". This method returned a WundergroundResponse class with all data of Wunderground's api. The amount data returned depends of the feature param
 
 ```java
 void query(APIDelegate<WundergroundResponse> delegate,
@@ -26,6 +26,70 @@ void query(APIDelegate<WundergroundResponse> delegate,
             Query query,
             FeatureParam... features);
 ```
+
+## Params
+
+### ApiKey param
+
+Your api key for wunderground's Weather API. [Get here](http://www.wunderground.com/weather/api/)
+
+### Settings (optional)
+
+Set settings for returned data.
+
+**Language.** Default: EN. Returns the API response in the [specified language](http://www.wunderground.com/weather/api/d/docs?d=language-support).
+
+```java
+Settings settings = Settings.value(Setting.lang(Lang.EU));
+```
+
+**Pws.** Default: 1 (true). Use personal weather stations for conditions.
+
+```java
+Settings settings = Settings.value(Setting.pws(false));
+```
+
+**Bestfct.** Default: 1 (true). Use Weather Undergrond Best Forecast for forecast.
+
+```java
+Settings settings = Settings.value(Setting.bestfct(false));
+```
+
+**You can use various**
+
+```java
+Settings settings = Settings.value(Setting.lang(Lang.EU), Setting.pws(false), Setting.bestfct(false));
+```
+
+### Query
+
+The location for which you want weather information. Examples:
+
+US state/city
+
+```java
+Query.usStateCity("CA", "San_Francisco")
+```
+
+US zipcode
+
+```java
+Query.usZipCode("60290")
+```
+
+Country/city
+```java
+Query.internationalStateCity("Australia", "Sydney")
+```
+
+Latitude,longitude
+
+```java
+Query.latLng(37.8,-122.4)
+```
+
+
+
 
 ## Simple
 
