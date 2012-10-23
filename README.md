@@ -20,16 +20,16 @@ Android-wunderground-client used the [RESTrung](https://github.com/47deg/restrun
 This library only has a method called "query". This method returned a WundergroundResponse class with all data of Wunderground's api.
 
 ```java
-void query(APIDelegate<WundergroundResponse> delegate,  // Delegate
-            String apiKey,                              // Your wunderground api key
-            Settings settings,                          // [Settings](http://www.wunderground.com/weather/api/d/docs?d=data/index#standard_request_url_format)
-            Query query,                                //
-            FeatureParam... features);                  // Data type
+void query(APIDelegate<WundergroundResponse> delegate,
+            String apiKey,
+            Settings settings,
+            Query query,
+            FeatureParam... features);
 ```
 
 ## Simple
 
-The follow example returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions)
+The follow example returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions) by latitude and longitude
 
 ```java
     GeoPoint center = mapView.getMapCenter();
@@ -42,6 +42,5 @@ The follow example returns the current temperature, weather condition, humidity,
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6()  / 1E6),
-                    conditions);
+    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), conditions);
 ```
