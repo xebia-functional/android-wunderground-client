@@ -115,6 +115,12 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
     @JsonProperty("trip")
     private PlannerResponse planner;
 
+    /**
+     * @see YesterdayResponse
+     */
+    @JsonProperty("history")
+    private YesterdayResponse history;
+
     public InfoWundergroundResponse getResponse() {
         return response;
     }
@@ -233,5 +239,13 @@ public class WundergroundResponse extends AbstractJSONResponse implements Serial
 
     public void setPlanner(PlannerResponse planner) {
         this.planner = planner;
+    }
+
+    public YesterdayResponse getHistory() {
+        return history;
+    }
+
+    public void setHistory(YesterdayResponse history) {
+        this.history = history;
     }
 }
