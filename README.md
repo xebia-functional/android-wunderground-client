@@ -20,7 +20,11 @@ Android-wunderground-client used the [RESTrung](https://github.com/47deg/restrun
 This library only has a method called "query". This method returned a WundergroundResponse class with all data of Wunderground's api.
 
 ```java
-void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Settings settings, Query query, FeatureParam... features);
+void query(APIDelegate<WundergroundResponse> delegate,  // Delegate
+            String apiKey,                              // Your wunderground api key
+            Settings settings,                          // [Settings](http://www.wunderground.com/weather/api/d/docs?d=data/index#standard_request_url_format)
+            Query query,                                //
+            FeatureParam... features);                  // Data type
 ```
 
 ## Simple
@@ -32,7 +36,7 @@ The follow example returns the current temperature, weather condition, humidity,
     WundergroundApiProvider.getClient().query(new ContextAwareAPIDelegate<WundergroundResponse>(MainActivity.this, WundergroundResponse.class, RequestCache.LoadPolicy.NEVER) {
         @Override
         public void onResults(WundergroundResponse wundergroundResponse) {
-            Toast.makeText(MyActivity.this, wundergroundResponse.getCurrentObservation().getDisplayLocation().getCity() + "--" + wundergroundResponse.getCurrentObservation().getWeather(), Toast.LENGTH_LONG).show();
+            Toast.makeText(MyActivity.this, wundergroundResponse.getCurrentObservation().getWeather(), Toast.LENGTH_LONG).show();
         }
         @Override
         public void onError(Throwable e) {
