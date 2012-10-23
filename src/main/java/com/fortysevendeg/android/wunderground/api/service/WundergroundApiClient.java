@@ -20,7 +20,7 @@
 
 package com.fortysevendeg.android.wunderground.api.service;
 
-import com.fortysevendeg.android.wunderground.api.service.request.Feature;
+import com.fortysevendeg.android.wunderground.api.service.request.FeatureParam;
 import com.fortysevendeg.android.wunderground.api.service.request.Query;
 import com.fortysevendeg.android.wunderground.api.service.request.Settings;
 import com.fortysevendeg.android.wunderground.api.service.response.WundergroundResponse;
@@ -32,9 +32,9 @@ import it.restrung.rest.client.APIDelegate;
 public interface WundergroundApiClient {
 
     /**
-     * @see WundergroundApiClient#query(it.restrung.rest.client.APIDelegate, String, com.fortysevendeg.android.wunderground.api.service.request.Settings, com.fortysevendeg.android.wunderground.api.service.request.Query, com.fortysevendeg.android.wunderground.api.service.request.Feature...)
+     * @see WundergroundApiClient#query(it.restrung.rest.client.APIDelegate, String, com.fortysevendeg.android.wunderground.api.service.request.Settings, com.fortysevendeg.android.wunderground.api.service.request.Query, com.fortysevendeg.android.wunderground.api.service.request.FeatureParam...)
      */
-    void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Query query, Feature... features);
+    void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Query query, FeatureParam... features);
 
     /**
      * Get weather information
@@ -45,6 +45,6 @@ public interface WundergroundApiClient {
      * @param query    The location for which you want weather information
      * @param features One or more of the following data features. Note that these can be combined into a single request: geolookup/conditions/forecast
      */
-    void query(APIDelegate<WundergroundResponse> delegate,String apiKey, Settings settings, Query query, Feature... features);
+    void query(APIDelegate<WundergroundResponse> delegate,String apiKey, Settings settings, Query query, FeatureParam... features);
 
 }

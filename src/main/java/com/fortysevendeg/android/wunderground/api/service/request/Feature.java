@@ -24,7 +24,7 @@ package com.fortysevendeg.android.wunderground.api.service.request;
  * Available features
  * http://www.wunderground.com/weather/api/d/docs?d=data/index
  */
-public enum Feature {
+public enum Feature implements FeatureParam {
 
     /**
      * Returns the short name description, expiration time and a long text description of a severe alert — if one has been issued for the searched upon location.
@@ -73,7 +73,7 @@ public enum Feature {
     /**
      * planner_MMDDMMDD returns a weather summary based on historical information between the specified dates (30 days max).
      */
-    //planner, //unsupported in this version
+    planner,
     /**
      * Raw Tidal information for graphs
      */
@@ -93,5 +93,11 @@ public enum Feature {
     /**
      * Returns a summary of the observed weather history for yesterday.
      */
-    yesterday
+    yesterday;
+
+
+    @Override
+    public String toString() {
+        return name();
+    }
 }

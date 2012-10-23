@@ -22,7 +22,7 @@ package com.fortysevendeg.android.wunderground.api.service.impl;
 
 import android.text.TextUtils;
 import com.fortysevendeg.android.wunderground.api.service.WundergroundApiClient;
-import com.fortysevendeg.android.wunderground.api.service.request.Feature;
+import com.fortysevendeg.android.wunderground.api.service.request.FeatureParam;
 import com.fortysevendeg.android.wunderground.api.service.request.Query;
 import com.fortysevendeg.android.wunderground.api.service.request.Settings;
 import com.fortysevendeg.android.wunderground.api.service.response.WundergroundResponse;
@@ -48,12 +48,12 @@ public class WundergoundApiClientImpl implements WundergroundApiClient {
     }
 
     @Override
-    public void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Query query, Feature... features) {
+    public void query(APIDelegate<WundergroundResponse> delegate, String apiKey, Query query, FeatureParam... features) {
         query(delegate, apiKey, null, query, features);
     }
 
     @Override
-    public void query(APIDelegate<WundergroundResponse> delegate,String apiKey, Settings settings, Query query, Feature... features) {
+    public void query(APIDelegate<WundergroundResponse> delegate,String apiKey, Settings settings, Query query, FeatureParam... features) {
         if (settings != null) {
             client.getAsync(delegate, getEndpoint("/%s/%s/%s/q/%s.json"), apiKey, TextUtils.join("/", features), TextUtils.join("/", settings.getValue()), query.getValue());
         } else {
