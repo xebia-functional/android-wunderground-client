@@ -88,12 +88,29 @@ Latitude,longitude
 Query.latLng(37.8,-122.4)
 ```
 
+### FeatureParam
 
+One or more of the following data features. Note that these can be combined into a single request. List feature params [here](http://www.wunderground.com/weather/api/d/docs?d=data/index)
 
+**alerts** Returns the short name description, expiration time and a long text description of a severe alert — if one has been issued for the searched upon location.
 
-## Simple
+**astronomy** Returns the moon phase, sunrise and sunset times.
 
-The follow example returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions) by latitude and longitude
+**conditions** Returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility.
+
+**forecast** Returns a summary of the weather for the next 3 days. This includes high and low temperatures, a string text forecast and the conditions.
+
+**webcams** Returns locations of nearby Personal Weather Stations and URL's for images from their web cams.
+
+¡¡Important!! The feature params "history" and "planner" have this format "history_YYYYMMDD" and "planner_YYYYMMDD". You must use withSuffix method. Example:
+
+```java
+withSuffix(Feature.history, "20120810")
+``
+
+## Examples of use
+
+The follow example returns conditions (the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions)) by latitude and longitude
 
 ```java
     GeoPoint center = mapView.getMapCenter();
@@ -106,5 +123,52 @@ The follow example returns the current temperature, weather condition, humidity,
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), conditions);
+    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
+```
+
+The follow examaple return conditions and astronomy (the moon phase, sunrise and sunset times) by latitude and longitude
+
+```java
+    GeoPoint center = mapView.getMapCenter();
+    WundergroundApiProvider.getClient().query(new ContextAwareAPIDelegate<WundergroundResponse>(MainActivity.this, WundergroundResponse.class, RequestCache.LoadPolicy.NEVER) {
+        @Override
+        public void onResults(WundergroundResponse wundergroundResponse) {
+            Toast.makeText(MyActivity.this, wundergroundResponse.getCurrentObservation().getWeather(), Toast.LENGTH_LONG).show();
+        }
+        @Override
+        public void onError(Throwable e) {
+            Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
+        }
+    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions, Feature.astronomy);
+```
+
+The follow example return planner (a weather summary based on historical information between the specified dates (30 days max)) by country and city
+
+```java
+    WundergroundApiProvider.getClient().query(new ContextAwareAPIDelegate<WundergroundResponse>(MainActivity.this, WundergroundResponse.class, RequestCache.LoadPolicy.NEVER) {
+        @Override
+        public void onResults(WundergroundResponse wundergroundResponse) {
+            Toast.makeText(MyActivity.this, wundergroundResponse.getCurrentObservation().getWeather(), Toast.LENGTH_LONG).show();
+        }
+        @Override
+        public void onError(Throwable e) {
+            Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
+        }
+    }, "Your Api Key", Query.internationalStateCity("Australia", "Sydney"), withSuffix(Feature.planner, "20120810"));
+```
+
+The follow example returns conditions by latitude/longitude and settings (FR language)
+
+```java
+    GeoPoint center = mapView.getMapCenter();
+    WundergroundApiProvider.getClient().query(new ContextAwareAPIDelegate<WundergroundResponse>(MainActivity.this, WundergroundResponse.class, RequestCache.LoadPolicy.NEVER) {
+        @Override
+        public void onResults(WundergroundResponse wundergroundResponse) {
+            Toast.makeText(MyActivity.this, wundergroundResponse.getCurrentObservation().getWeather(), Toast.LENGTH_LONG).show();
+        }
+        @Override
+        public void onError(Throwable e) {
+            Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
+        }
+    }, "Your Api Key", Settings.value(Setting.lang(Lang.FR)), Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
 ```
