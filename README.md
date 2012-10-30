@@ -1,13 +1,12 @@
 # Android-wunderground-client
 
-An Android client for [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=index)
+An Android client for the [Weather Underground Weather API](http://www.wunderground.com/weather/api/d/docs?d=index)
 
 # Introduction
 
-Android-wunderground-client was born out of the need to provide an easy interface for Android apps @ [47 Degrees](http://47deg.com) to interface with Wunderground's Weather API.
-Contributions and constructive feedback are welcome.
+Android-wunderground-client was born out of the need to provide an easy interface for Android apps @ [47 Degrees](http://47deg.com) to interface with Weather Underground's Weather API. Contributions and constructive feedback are always welcome.
 
-Android-wunderground-client used the [RESTrung](https://github.com/47deg/restrung) library for get data from server's wunderground.
+Android-wunderground-client uses the open source [RESTrung](https://github.com/47deg/restrung) library for getting data from the Weather Underground API.
 
 # Download
 
@@ -17,7 +16,7 @@ Android-wunderground-client used the [RESTrung](https://github.com/47deg/restrun
 
 # Usage
 
-This library only has a method called "query". This method returned a WundergroundResponse class with all data of Wunderground's api. The amount data returned depends of the feature param
+This library has a single method called "query". This method returns a WundergroundResponse class with all of the data from the Weather Underground API. The amount of data returned depends on the features parameter passed to the query method.
 
 ```java
 void query(APIDelegate<WundergroundResponse> delegate,
@@ -27,15 +26,15 @@ void query(APIDelegate<WundergroundResponse> delegate,
             FeatureParam... features);
 ```
 
-## Params
+## Parameters
 
 ### ApiKey
 
-Your api key for wunderground's Weather API. [Get here](http://www.wunderground.com/weather/api/)
+Your API key for Weather Underground's Weather API. [Get one here](http://www.wunderground.com/weather/api/)
 
 ### Settings (optional)
 
-Set settings for returned data.
+Settings relating to the returned data.
 
 **Language.** Default: EN. Returns the API response in the [specified language](http://www.wunderground.com/weather/api/d/docs?d=language-support).
 
@@ -55,7 +54,7 @@ Settings settings = Settings.value(Setting.pws(false));
 Settings settings = Settings.value(Setting.bestfct(false));
 ```
 
-**You can use various**
+**You can combine multiple settings**
 
 ```java
 Settings settings = Settings.value(Setting.lang(Lang.EU), Setting.pws(false), Setting.bestfct(false));
@@ -71,7 +70,7 @@ US state/city
 Query.usStateCity("CA", "San_Francisco")
 ```
 
-US zipcode
+US ZipCode
 
 ```java
 Query.usZipCode("60290")
@@ -90,7 +89,7 @@ Query.latLng(37.8,-122.4)
 
 ### FeatureParam
 
-One or more of the following data features. Note that these can be combined into a single request. Complete list feature params [here](http://www.wunderground.com/weather/api/d/docs?d=data/index)
+One or more of the following data features. Note that these can be combined into a single request. Complete list feature params is [available here](http://www.wunderground.com/weather/api/d/docs?d=data/index)
 
 **alerts** Returns the short name description, expiration time and a long text description of a severe alert — if one has been issued for the searched upon location.
 
@@ -100,9 +99,9 @@ One or more of the following data features. Note that these can be combined into
 
 **forecast** Returns a summary of the weather for the next 3 days. This includes high and low temperatures, a string text forecast and the conditions.
 
-**webcams** Returns locations of nearby Personal Weather Stations and URL's for images from their web cams.
+**webcams** Returns locations of nearby Personal Weather Stations and URLs for images from their web cams.
 
-¡¡Important!! The feature params "history" and "planner" have this format "history_YYYYMMDD" and "planner_YYYYMMDD". You must use withSuffix method. Example:
+Important!! The feature params "history" and "planner" are dates with the following format "history_YYYYMMDD" and "planner_YYYYMMDD". You can use the withSuffix method to achieve the correct format. Example:
 
 ```java
 withSuffix(Feature.history, "20120810")
@@ -110,7 +109,7 @@ withSuffix(Feature.history, "20120810")
 
 ## Examples of use
 
-The follow example returns conditions (the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Wunderground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions)) by latitude and longitude
+The following example returns conditions (the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure, and visibility from [Weather Underground's Weather API](http://www.wunderground.com/weather/api/d/docs?d=data/conditions)) for a given latitude and longitude
 
 ```java
     GeoPoint center = mapView.getMapCenter();
@@ -123,10 +122,10 @@ The follow example returns conditions (the current temperature, weather conditio
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
+    }, "Your API Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
 ```
 
-The follow examaple return conditions and astronomy (the moon phase, sunrise and sunset times) by latitude and longitude
+The following example returns conditions and astronomy (the moon phase, sunrise and sunset times) for a given latitude and longitude
 
 ```java
     GeoPoint center = mapView.getMapCenter();
@@ -139,10 +138,10 @@ The follow examaple return conditions and astronomy (the moon phase, sunrise and
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions, Feature.astronomy);
+    }, "Your API Key", Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions, Feature.astronomy);
 ```
 
-The follow example return planner (a weather summary based on historical information between the specified dates (30 days max)) by country and city
+The following example returns the planner (a weather summary based on historical information between the specified dates (30 days max)) for a given country and city
 
 ```java
     WundergroundApiProvider.getClient().query(new ContextAwareAPIDelegate<WundergroundResponse>(MainActivity.this, WundergroundResponse.class, RequestCache.LoadPolicy.NEVER) {
@@ -154,10 +153,10 @@ The follow example return planner (a weather summary based on historical informa
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Query.internationalStateCity("Australia", "Sydney"), withSuffix(Feature.planner, "20120810"));
+    }, "Your API Key", Query.internationalStateCity("Australia", "Sydney"), withSuffix(Feature.planner, "20120810"));
 ```
 
-The follow example returns conditions by latitude/longitude and settings (FR language)
+The following example returns conditions for a given latitude/longitude and settings (FR language)
 
 ```java
     GeoPoint center = mapView.getMapCenter();
@@ -170,5 +169,21 @@ The follow example returns conditions by latitude/longitude and settings (FR lan
         public void onError(Throwable e) {
             Toast.makeText(MyActivity.this, "fail", Toast.LENGTH_LONG).show();
         }
-    }, "Your Api Key", Settings.value(Setting.lang(Lang.FR)), Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
+    }, "Your API Key", Settings.value(Setting.lang(Lang.FR)), Query.latLng(center.getLatitudeE6() / 1E6, center.getLongitudeE6() / 1E6), Feature.conditions);
 ```
+
+# License
+
+Copyright (C) 2012 47 Degrees, LLC 
+http://47deg.com  
+hello@47deg.com
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+# Terms of Service
+
+Make sure to consult the Weather Underground [Terms of Service](http://www.wunderground.com/weather/api/d/terms.html) for applicable restrictions for usage of the API.
