@@ -12,7 +12,36 @@ Android-wunderground-client uses the open source [RESTrung](https://github.com/4
 
 ## Maven Dependency
 
-## Dependencies
+Android-wunderground-client may be automatically imported into your project if you already use [Maven](http://maven.apache.org/). Just declare Android-wunderground-client as a maven dependency.
+If you wish to always use the latest unstable snapshots, add the Sonatype repository where the snapshot artifacts are being deployed.
+Official releases will be made available at Maven Central.
+
+```xml
+<repository>
+    <id>sonatype</id>
+    <url>https://oss.sonatype.org/content/groups/public/</url>
+    <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+    </releases>
+    <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+    </snapshots>
+</repository>
+
+<dependency>
+    <groupId>com.fortysevendeg.android</groupId>
+    <artifactId>android-wunderground-client</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+```
+## Other Downloads
+
+You can get the releases, snapshots and other forms in which Android-wunderground-client is distributed from the [Downloads](https://github.com/47deg/android-wunderground-client/downloads) page.
+
 
 # Usage
 
