@@ -1,3 +1,6 @@
+This library is no longer maintained. For all Android REST related features and better support please take a look at https://github.com/47deg/appsly-android-rest.
+
+
 # Android-wunderground-client
 
 An Android client for the [Weather Underground Weather API](http://www.wunderground.com/weather/api/d/docs?d=index)
